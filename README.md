@@ -1,9 +1,14 @@
 # xlsCsvJsonTaskBySanket
 
 
+first install all dependencies => **npm install**
+
+To run the app =>  **npm run dev**
+
+
 (1).By this url u will get all book list with details in xlsx format
 
-http://localhost:5000/get-book-list
+**http://localhost:5000/get-book-list**
 
 
 (2).Seacrh for book and get data in csv/json format'
@@ -25,11 +30,11 @@ List of book name =
 
 
 By query string
-http://localhost:5000/get-book-detail?book={bookname}
+**http://localhost:5000/get-book-detail?book={bookname}**
 
-Sample => http://localhost:3000/get-book-detail?book=DAYLIGHT
+Sample => **http://localhost:5000/get-book-detail?book=DAYLIGHT**
 
 By params
-http://localhost:5000/get-book-detail/{bookname}
+**http://localhost:5000/get-book-detail/{bookname}**
 
-Sample => http://localhost:3000/get-book-detail/DAYLIGHT
+Sample => **http://localhost:5000/get-book-detail/DAYLIGHT**
