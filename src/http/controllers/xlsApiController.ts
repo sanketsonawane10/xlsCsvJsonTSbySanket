@@ -24,7 +24,7 @@ function xlsApiController() {
                     ///////////// json to xlsx /////////////////////
                     const xls = json2xls(jsonData.results.books);
                     fs.writeFileSync('data.xlsx', xls, 'binary');
-                    res.send("data inserted in xls");
+                    res.json("data inserted in xls");
                 }).catch((err: any) => {
                     console.log(err);
                 });
@@ -33,7 +33,7 @@ function xlsApiController() {
 
         getBookDetail(req: Request, res: Response) {
 
-            const bookDetailUrl = "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=TksNM2M74TpFR0qWf5HLpsienG2K3UNo";
+            const bookDetailUrl:string = "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=TksNM2M74TpFR0qWf5HLpsienG2K3UNo";
 
             fetch(bookDetailUrl)
                 .then((res: any) => { return res.json() })
@@ -41,7 +41,7 @@ function xlsApiController() {
 
                     let newArr: string[] = [];
 
-                    for (let i = 0; i < json.results.books.length; i++) {
+                    for (let i:number = 0; i < json.results.books.length; i++) {
 
                         let book: string = json.results.books[i].title;
                         newArr.push(book);
@@ -52,7 +52,7 @@ function xlsApiController() {
                         if (bookNameQuery == newArr[i] || bookNameParams == newArr[i]) {
 
                             ///////////// json to csv /////////////////////
-                            const stats = json.results.books[i];
+                            const stats:object = json.results.books[i];
                             jsonexport(stats, function (err: any, csv: any) {
                                 if (err) return console.error(err);
                                 console.log(csv);
